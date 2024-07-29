@@ -1,0 +1,25 @@
+<p>signup works!</p>
+
+<div >
+    <form  (ngSubmit)="onSubmit()">
+        <div>
+            <label for="userName">UserName</label>
+            <input type="text" name="userName" id="userName" [(ngModel)]="userName" >
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" [(ngModel)]="email">
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" [(ngModel)]="password">
+        </div>
+        <div>
+            <label for="phone">Phone No.</label>
+            <input type="tel" name="phone" id="phone" [(ngModel)]="phone">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
