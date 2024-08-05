@@ -1,0 +1,42 @@
+<p>edit-employee works!</p>
+
+
+<div class="container">
+    <div *ngIf="empObj">
+        <form (ngSubmit)="onSubmit()">
+            <div class="my-3">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" [(ngModel)]="empObj.firstName">
+            </div>
+            <div class="my-3">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" [(ngModel)]="empObj.lastName">
+            </div>
+            <div class="my-3">
+                <label for="Email">Email:</label>
+                <input type="text" id="email" name="email" [(ngModel)]="empObj.email">
+            </div>
+            <div class="my-3">
+                <label for="phone">Phone No:</label>
+                <input type="text" id="phone" name="phone" [(ngModel)]="empObj.phone">
+            </div>
+            <div class="my-3">
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" [(ngModel)]="empObj.city">
+            </div>
+            <div class="my-3">
+                <label for="state">State:</label>
+                <input type="text" id="state" name="state" [(ngModel)]="empObj.state">
+            </div>
+            <div class="my-3">
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" [(ngModel)]="empObj.status">
+            </div>
+
+            <div class="my-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+       
+    </div>
+</div>

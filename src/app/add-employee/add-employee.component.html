@@ -1,0 +1,44 @@
+<p>add-employee works!</p>
+
+<div class="container">
+    <form (ngSubmit)="onSubmit()">
+        <div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName">
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" [(ngModel)]="lastName">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="email">
+        </div>
+        <div>
+            <label for="phone">Phone No:</label>
+            <input type="tel" id="phone" name="phone" [(ngModel)]="phone">
+        </div>
+        <div>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" [(ngModel)]="city">
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" [(ngModel)]="state">
+        </div>
+        <div>
+            <label for="status">status:</label>
+            <input type="text" id="status" name="status" [(ngModel)]="status">
+        </div>
+        <div>
+            <label for="deptId">Department:</label>
+
+            <select name="deptId" id="deptId" [(ngModel)]="deptId">
+                <option *ngFor="let item of deptObj" [value]="item.departmentID">{{item.departmentName}}</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Add Employee</button>
+        </div>
+    </form>
+</div>

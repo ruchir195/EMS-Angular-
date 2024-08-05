@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Employee } from 'src/app/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,33 @@ export class AuthService {
   addDepartment(departmentName: string|undefined):Observable<any>{
     return this.http.post<any>(`${this.baseURL}/Department/addDepartment`,{departmentName});
   }
+
+
+  addEmployee(empObj: Object):Observable<any>{
+    return this.http.post<any>(`${this.baseURL}/Employee/addEmployee`, empObj);
+  }
+
+
+  getEmpList():Observable<any>{
+    return this.http.get<any>(`${this.baseURL}/Employee/employeeList`);
+  }
+
+  fetchEmployee(empId: number|undefined ):Observable<any>{
+    return this.http.post<any>(`${this.baseURL}/Employee/empEdit`, empId);
+  }
+
+  editEmployee(empObj: object):Observable<any>{
+    return this.http.post<any>(`${this.baseURL}/Employee/employeeEdit`,empObj);
+  }
+
+
+  deleteEmployee(empObj: object):Observable<any>{
+    return this.http.post<any>(`${this.baseURL}/Employee/deleteEmployee`,empObj);
+  }
+
+
+  fetchDept():Observable<any>{
+    return this.http.get<any>(`${this.baseURL}/Employee/getDepartment`);
+  }
 }
+

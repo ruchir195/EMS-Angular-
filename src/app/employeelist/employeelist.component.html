@@ -1,0 +1,44 @@
+<p>employeelist works!</p>
+
+<div class="my-3">
+    <button class="mx-3 btn btn-primary" ><a  class="text-light"routerLink="/department">Add Department</a></button>
+    <button class="mx-3 btn btn-primary" (click)="onClick()">Add Employee</button>
+</div>
+
+    
+    <!-- <button class="mx-3 btn btn-primary"><a  class="text-light"routerLink="/employeeList">Employee List</a></button> -->
+<div class="container">
+    <table class="border border-1 border-dark">
+        <thead class="border border-1 border-dark">
+            <tr class="border border-1 border-dark">
+                <td class="border border-1 border-dark px-3">Sr No.</td>
+                <td class="border border-1 border-dark px-3">First Name</td>
+                <td class="border border-1 border-dark px-3">Last Name</td>
+                <td class="border border-1 border-dark px-3">Email</td>
+                <td class="border border-1 border-dark px-3">Phone</td>
+                <td class="border border-1 border-dark px-3">Department</td>
+                <td class="border border-1 border-dark px-3">City</td>
+                <td class="border border-1 border-dark px-3">State</td>
+                <td class="border border-1 border-dark px-3">Status</td>
+                <td class="border border-1 border-dark px-3"></td>
+                <td class="border border-1 border-dark px-3"></td>
+            </tr>
+        </thead>
+        <tbody class="border border-1 border-dark">
+            <tr *ngFor="let item of empList; let i = index" class="border border-1 border-dark">
+                <td class="border border-1 border-dark px-3">{{i+1}}</td>
+                <td class="border border-1 border-dark px-3">{{item.firstName}}</td>
+                <td class="border border-1 border-dark px-3">{{item.lastName}}</td>
+                <td class="border border-1 border-dark px-3">{{item.email}}</td>
+                <td class="border border-1 border-dark px-3">{{item.phone}}</td>
+                <td class="border border-1 border-dark px-3">{{item.department.departmentName}}</td>
+                <td class="border border-1 border-dark px-3">{{item.city}}</td>
+                <td class="border border-1 border-dark px-3">{{item.state}}</td>
+                <td class="border border-1 border-dark px-3">{{item.status}}</td>
+                <td class="border border-1 border-dark px-3" ><button  class="btn btn-primary my-2" [disabled]="userId !== item.userID" (click)="editEmployee(item.employeeId)">Edit</button></td>
+                <td class="border border-1 border-dark px-3"><button class="btn btn-danger" [disabled]="userId !== item.userID" (click)="deleteEmployee(item.employeeId)">Delete</button></td>
+            </tr>
+        </tbody>
+        
+    </table>
+ </div>

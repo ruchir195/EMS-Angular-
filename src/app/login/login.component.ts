@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -8,14 +9,19 @@ import { AuthService } from 'src/services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   email?: string;
   password?: string;
+  userId?: number;
 
   onSubmit(){
     this.authService.login(this.email, this.password).subscribe(
-      response=>{console.log(response)},
+      response=>{
+        console.log(response);
+        this.userId = response.user.userID;
+        this.router.navigate([`/employeeList/${this.userId}`]);
+      },
       error=>{console.log(error)}
     )
   }

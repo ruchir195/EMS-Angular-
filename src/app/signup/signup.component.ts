@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignupComponent {
   password?: String;
   phone?: String;
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private router: Router){}
 
   onSubmit(){
     console.log(this.userName)
@@ -28,7 +29,10 @@ export class SignupComponent {
     }
 
     this.authService.signup(signupObj).subscribe(
-      response => {console.log(response)},
+      response => {
+        console.log(response);
+        this.router.navigate(['/login']);
+      },
       error => {console.log(error)}
     );
   }
